@@ -2,7 +2,7 @@ import {invoiceGeneratePdf} from "./app.js"
 
 export class shopPdf extends invoiceGeneratePdf {
 
-    generateInvoice() {
+    generateInvoice(client,cartItems) {
         this.addHeader(`Tony's Tiles`, "gold");
 
         this.position.y += 15;
@@ -37,14 +37,19 @@ export class shopPdf extends invoiceGeneratePdf {
 
         this.addText(`Date: ${worldDate}`, "black");
 
-        let cart = [];
-
         let amount = 0;
 
-        for (let i = 0; i)
+        for (let i = 0; )
 
-       
-       
+
+
+
+
+
+
+        this.addHeader(`Product Name: ${productName} $: ${productPrice} Amount: ${productCost} Total: ${amount}`, "blue");
+
+
         
 
 
