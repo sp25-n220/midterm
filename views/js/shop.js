@@ -2,7 +2,7 @@ import {invoiceGeneratePdf} from "./app.js"
 
 export class shopPdf extends invoiceGeneratePdf {
 
-    generateInvoice(client,cartItems) {
+    generateInvoice(client, cartItems) {
         this.addHeader(`Tony's Tiles`, "gold");
 
         this.position.y += 15;
@@ -14,22 +14,27 @@ export class shopPdf extends invoiceGeneratePdf {
 
         this.addText(`Client Emai`, "black");  
         this.position.y += 5;
-        this.addText(`${client.name}`)
+        this.addText(`${client.email}`)
 
 
-
-        const nums = "0123456789"; 
-
-        invoiceNum = '';
-
-        for (let i = 0; i < 8; i++) {
-            invoiceNum += nums.charAt(Math.floor(Math.random() * nums.length));
-
-            console.log(invoiceNum);
-
+        generateInvoiceNumber() {
+            
+            const nums = "0123456789"; 
+            
+            let invoiceNum = '';
+            
+            for (let i = 0; i < 8; i++) {
+                invoiceNum += nums.charAt(Math.floor(Math.random() * nums.length));
+    
+                console.log(invoiceNum);
+    
+            }
+    
+            return invoiceNum;
         }
 
-        return invoiceNum;
+        
+        
 
         this.position.y += 10;
 
@@ -39,19 +44,26 @@ export class shopPdf extends invoiceGeneratePdf {
 
         let amount = 0;
 
-        for (let i = 0; )
+        cartItems.forEach((product) => {
+            const totalAmount = product.price * product.quantity;
+
+            amount += totalAmount;
 
 
+            this.addHeader(`${product.name}, ${product.price}, $${product.quantity}, $${totalAmount}  `);
+        });
+
+        const tax = amount * .07;
+
+        const total = amount + tax;
 
 
-
-
-
-        this.addHeader(`Product Name: ${productName} $: ${productPrice} Amount: ${productCost} Total: ${amount}`, "blue");
 
 
         
-
+        this.addText(`Total before tax $${amount}`);
+        this.addText(`Tax (7%): $${tax}`);
+        this.addText(`Grand Total: $${total}`);
 
     }
 

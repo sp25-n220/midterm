@@ -4,31 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>shop</title>
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     
-    <a href="/">TONY'S TILES</a>
-    <a href="/shop">SHOP</a>
-    <a href="/404">ABOUT</a>
+    <nav>
+        <a href="/">TONY'S TILES</a>
+        <a href="/shop">SHOP</a>
+        <a href="/404">ABOUT</a>
+    </nav>
+
 
     <div class="product-holder">
         <div class="products">
             <div class="tile">
-                <h1>This is a normal Tile!</h1>
-                <h2>$71.99</h2>
+                <h1 class="product-name">This is a normal Tile!</h1>
+                <h2 class="product-price">$71.99</h2>
                 <button class="tile1-button"></button>
             </div>
             <div class="cool-tile">
                 <h1>This is a Cool Tile!</h1>
-                <h2>$100.99</h2>
+                <h2 class="product-price">$>$100.99</h2>
                 <button class="tile2-button"></button>
 
             </div>
             <div class="coolest-tile">
-                <h1>This is the Coolest Tile!</h1>
-                <h2>$125.99</h2>
+                <h1 class="product-name">This is the Coolest Tile!</h1>
+                <h2 class="product-price">$>$125.99</h2>
                 <button class="tile3-button"></button>
             </div>
         </div>
@@ -45,13 +48,13 @@
     </div>
 
     <div class="button">
-        <button id="view-ticket">View your Ticket!</button>
-        <button id="dl-ticket">Download Your Ticket!</button>
+        <button id="view-invoice">View your Ticket!</button>
+        <button id="dl-invoice">Download Your Ticket!</button>
     </div>
 
 
     <section>
-        <iframe id="ticket-pdf" src="" frameborder="0"></iframe>
+        <iframe id="invoice-pdf" src="" frameborder="0"></iframe>
     </section>
 
     <script type="module" src="js/shop.js"></script>
