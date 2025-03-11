@@ -12,26 +12,15 @@ export class shopPdf extends invoiceGeneratePdf {
         this.addText(`${client.name}`)
         
 
-        this.addText(`Client Emai`, "black");  
+        this.addText(`Client Email`, "black");  
         this.position.y += 5;
         this.addText(`${client.email}`)
 
+        const invoiceNum = this.generateInvoiceNumber();
 
-        generateInvoiceNumber() {
-            
-            const nums = "0123456789"; 
-            
-            let invoiceNum = '';
-            
-            for (let i = 0; i < 8; i++) {
-                invoiceNum += nums.charAt(Math.floor(Math.random() * nums.length));
-    
-                console.log(invoiceNum);
-    
-            }
-    
-            return invoiceNum;
-        }
+        this.addText(`Invoice Number: ${invoiceNum}`, "black");
+        
+       
 
         
         
@@ -67,5 +56,20 @@ export class shopPdf extends invoiceGeneratePdf {
 
     }
 
+    generateInvoiceNumber() {
+            
+        const nums = "0123456789"; 
+        
+        let invoiceNum = '';
+        
+        for (let i = 0; i < 8; i++) {
+            invoiceNum += nums.charAt(Math.floor(Math.random() * nums.length));
+
+            console.log(invoiceNum);
+
+        }
+
+        return invoiceNum;
+    }
 
 }
